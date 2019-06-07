@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style_fijacion.css">
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Document</title>
+
+
+</head>
+<body onload="carga()" >
+
+      <div id="imagen">
+        <img src="esquema-de-fijacion.svg" >
+      </div>  
+
+        <div id="contador">
+          
+                <label id ="veces2">Cantidad de Veces:</label><br>
+                <label id ="veces">0</label><br>
+            
+
+                <label id ="segundos2">Tiempo :</label><br>
+                <label id ="segundos"></label><br>
+                
+                
+               
+        </div>
+                  
+                <button type="button" class="btn btn-primary" id="incrementa" >Aumenta</button>
+
+        <script>
+            
+         
+          var cronometro;
+          var tiempo_lectura_uno = new Array(10);
+          pos = 0;
+          var i = 0;
+                  
+          function carga(){
+                          
+            contador_s = 120;
+            s = document.getElementById("segundos");
+                  
+            cronometro = setInterval(
+          function(){
+            s.innerHTML = contador_s;
+              if(contador_s == -1){
+                
+                            $('#ventana1').modal('show'); 
+                            $("#contador").fadeTo(0, 0.);
+                            $("#imagen").fadeTo(0, 0.);
+                            $("#incrementa").fadeTo(0, 0.);  
+                            document.getElementById("veces3").innerHTML = i;               
+                                       
+                }
+              contador_s--;
+              console.log(contador_s);
+              tiempo_lectura_uno[pos] = contador_s ;                        
+          },
+          1000);                  
+          }
+
+            
+            /*Contador de Cantidad de veces*/
+
+            $('#incrementa').click(function(){ 
+              i++;
+              document.getElementById("veces").innerHTML = i;
+              })
+
+            </script>
+<div class="container">
+    <br>
+        
+        <div class="modal fade"  id="ventana1">
+            <div class="modal-dialog">
+                    <div class="modal-content">
+                            <h2 class="modal-title">Resultado</h2>
+                           
+                            <div class="modal-body">
+                                        <div class="row uno">
+                                                <div class="col-md-4 null"></div>
+
+                                            <div class="col-md-4 " id="cantidad_veces">
+                                               Cantidad<br>de Pasadas<br>
+                                               <label id="veces3">veces</label>
+                                            </div>
+
+                                                <div class="col-md-4 null null"></div>
+        
+                                            
+                                          </div>
+                                       
+        
+                                          
+                                                
+        
+                                          <div class="col-md-3 null"></div>
+                                                <div class="col-md-6 centrar">
+                                                    
+                                                         <button type="button" id="boton" class="btn btn-primary" onclick="salir()" ><b>Guardar Cambios</b></button>
+                                                                <script>
+                                                                    function salir(){
+                                                                        window.close();
+                                                                     }
+                                                                </script>
+                                                       
+                                                </div>
+                                                <div class="col-md-3 null null"></div>
+                            </div>
+                        </div>
+
+
+
+            </div>
+        </div>
+    </div>
+                
+                
+            
+</body>
+</html>

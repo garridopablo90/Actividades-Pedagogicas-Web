@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="style_expansion.css">
+    <script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.js"></script>
+    <script type="text/javascript" src="https://code.jquery.com/ui/1.10.1/jquery-ui.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        #visor1,#visor2{
+            z-index: 99;
+        }
+        #uno{
+            z-index:0;
+        }
+        #dos{
+            z-index:1;
+        }
+    </style>
+    <script type="text/javascript"> 
+
+    //$('body').addClass('stop-scrolling')
+
+    var uno = $('#uno');
+    var veces = 0;
+    var v = veces;
+    var margen = 5;
+    
+    $(document).on('ready',function(){
+       // $("#veces2").fadeTo(1, 0.3);
+        //$("#veces").fadeTo(1, 0.3);
+        //$("#segundos2").fadeTo(1, 0.3);
+        //$("#segundos").fadeTo(1, 0.3);
+        //$("#palabras2").fadeTo(0, 0.);  
+        $("#visor2").hide();
+        $('#visor1').draggable({  axis: "y", cursor: "move", cursorAt: { top: 40, left: 30 }});          
+            
+
+                $('#visor1').draggable({containment: "parent",
+                    drag: function() {
+                        
+                        var offset = $(this).offset();
+                        var xPos   = offset.left;s
+                        var yPos   = offset.top;
+ 
+                        if(yPos > '413'){
+                            //$("#palabras1").fadeTo(0, 0.2);
+                            //$("#palabras2").fadeTo(0, 1.0);
+                            veces++;
+                            console.log(veces);
+                            $("#visor1").css({ top: '100px' });
+                            $("#visor1").hide();
+                            $("#visor2").css({ top:'0px'});
+                            $("#visor2").show();
+                            $('#visor2').draggable({  axis: "y", cursor: "move", cursorAt: { top: 40, left: 30 }});
+                            document.getElementById('veces').innerHTML = veces;
+                        }
+                    }
+
+                });
+
+                $('#visor2').draggable({containment: "parent",
+                    drag: function() {
+                        
+                        var offset = $(this).offset();
+                        var xPos2   = offset.left;
+                        var yPos2   = offset.top;
+                                                
+                        
+                        if(yPos2 > '413'){
+                            //$("#palabras2").fadeTo(0, 0.2);
+                            //$("#palabras1").fadeTo(0, 1.0);
+                            veces++;
+                            console.log(veces);
+                            $("#visor2").css({ top: '100px' });
+                            $("#visor2").hide();
+                            $("#visor1").css({ top:'0px'});
+                            $("#visor1").show();
+                            $('#visor1').draggable({  axis: "y", cursor: "move", cursorAt: { top: 40, left: 30 }});
+                            document.getElementById('veces').innerHTML = veces;
+                        }
+                    }
+
+                });
+               
+            
+    });
+   
+    </script>
+
+    <title></title>
+</head>
+<body onload ="carga(); traerDatos(); traerDatosDos()" >
+
+   
+
+    <div class="container">
+            <img src="visor.png" id="visor1" >
+            <img src="visor.png" id="visor2">
+        <div class="row">
+            <div class="col-lg-5 text-center"  id="uno">
+            
+                <div id="palabras1">
+                    <br>
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>5</p>
+                    <p>7</p>
+                    <br>
+                    <br>           
+                    <p>1</p>
+                    <p>2</p>
+                    <p>3</p>
+                    <p>4</p>
+                    <p>6</p>
+                    <p>7</p>
+                    
+                </div>
+                
+            </div>
+            
+            <div class="col-lg-5 text-center"  id="dos">
+                <div class="linea">
+                <div id="palabras2" >
+                    <br>
+                   
+                    <br>
+                    <br>
+                   
+                </div>              
+                <div id="palabras3" >    
+                    <br>
+                    
+                    <br>
+                    <br>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+
+    </script>
+
+    <div id="contador">
+    <label id ="veces2">Cantidad de Veces:</label><br>
+    <label id ="veces">0</label><br>
+
+    
+
+    <label id ="segundos2">Tiempo :</label><br>
+    <label id ="segundos"></label><br>
+    
+
+    </div>
+        </form>
+            <script>
+
+              var uno;
+              var cronometro;
+              var tiempo_lectura_uno = new Array(10);
+              pos = 0;
+      
+                  function carga(){
+              
+                    contador_s = 120;
+                    s = document.getElementById("segundos");
+      
+                    cronometro = setInterval(
+                      function(){
+                        s.innerHTML = contador_s;
+                        if(contador_s == -1){
+                            $("#palabras1").fadeTo(0, 0.); 
+                            $("#palabras2").fadeTo(0, 0.); 
+                            $("#palabras3").fadeTo(0, 0.); 
+                            $("#veces").fadeTo(1, 0.0);
+                            $("#veces2").fadeTo(1, 0.0);
+                            $("#segundos").fadeTo(1, 0.0);
+                            $("#segundos2").fadeTo(1, 0.0);
+                            $("#visor1").fadeTo(1, 0.0);
+                            $("#visor2").fadeTo(1, 0.0); 
+                            $('#ventana1').modal('show'); 
+                            document.getElementById('veces3').innerHTML = veces;
+                        }
+                        contador_s--;
+                        uno = contador_s;
+                        console.log(uno);
+                        tiempo_lectura_uno[pos] = contador_s ;
+                        
+                        },
+                        1000);
+                       
+                      
+
+
+                       }
+
+                  
+                       
+               
+               
+             </script>
+            
+            <div class="container">
+                    <br>
+                        
+                        <div class="modal fade" id="ventana1">
+                            <div class="modal-dialog">
+                                    <div class="modal-content">
+                                            <h2 class="modal-title">Resultado</h2>
+                                           
+                                            <div class="modal-body">
+                                                        <div class="row uno">
+                                                                <div class="col-md-4 null"></div>
+                
+                                                            <div class="col-md-4 " id="cantidad_veces">
+                                                               Cantidad<br>de Pasadas<br>
+                                                               <label id="veces3">veces</label>
+                                                            </div>
+                
+                                                                <div class="col-md-4 null null"></div>
+                        
+                                                            
+                                                          </div>
+                                                       
+                        
+                                                          
+                                                                
+                        
+                                                          <div class="col-md-3 null"></div>
+                                                                <div class="col-md-6 centrar">
+                                                                    
+                                                                         <button type="button" class="btn btn-primary" onclick="salir()" ><b>Guardar Cambios</b></button>
+                                                                                <script>
+                                                                                    function salir(){
+                                                                                        window.close();
+                                                                                     }
+                                                                                </script>
+                                                                       
+                                                                </div>
+                                                                <div class="col-md-3 null null"></div>
+                                            </div>
+                                        </div>
+                
+                
+                
+                            </div>
+                        </div>
+                    </div>
+                                
+                                   
+
+                
+                
+            
+            <script src="ajax_expansion.js"></script>
+            <script src="ajax_expansion_dos.js"></script>
+    
+</body>
+</html>

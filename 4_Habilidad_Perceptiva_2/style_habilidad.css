@@ -1,0 +1,147 @@
+#palabras1{
+    text-align: justify;
+    margin-left: 92px;
+    margin-top: -5px;
+}
+#palabras2{
+    text-align: justify;
+    margin-right: 392px;
+    margin-top: -5px;
+}
+
+#visor1{
+    /*width: 10%;*/
+    width: 150px;
+    position:absolute;
+    margin-left: 25px;
+    margin-top: 0px;
+}
+
+#visor2{
+    /*width: 10%;*/
+    width: 150px;
+    position:absolute;
+    margin-left: 424px;
+    margin-top: 0px;
+ }
+
+ #uno {
+    z-index: 0;
+    margin-top: 30px;
+}
+
+#dos {
+    z-index: 0;
+    margin-top: 30px;
+}
+
+#contador{
+    
+        width: 250px;
+        margin-right: 250px;
+        float: right;
+        margin-top: -400px;
+   
+}
+
+#segundos{
+    margin-left: -05px;
+}
+  
+#segundos2{
+    margin-left: -20px;
+}
+        
+#veces2{
+    margin-left: -60px;
+}
+
+#veces{
+    
+}
+ 
+.container .row{
+    /*padding-bottom: 140px;*/
+    padding-bottom: 115px;
+    
+}
+
+.container p{
+    font-size: 12px!important;
+    margin: 0 0 7px!important;
+}
+
+p.modal-title{
+    font-size: 50px!important;
+
+}
+
+ .uno .col-md-4{
+    border-radius: 10px 10px 10px 10px;
+    -moz-border-radius: 10px 10px 10px 10px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border: 0px solid #000000;
+    background-color:#DEB887;
+    border-left: 10px;
+    text-align: center;
+    font-size: 20px;
+    font-weight:bold;
+}
+.uno .col-md-4.null{background-color:#ffffff;}
+.uno .col-md-4.null.null{background-color:#ffffff;}
+.uno .col-md-3.null{background-color:#ffffff;}
+.uno .col-md-3.null.null{background-color:#ffffff;}
+.uno .col-md-6{
+    text-align: center;
+    font-size: 20px;
+    font-weight:bold;
+}
+
+
+.dos .col-md-4{
+    border-radius: 30px 30px 30px 30px;
+    -moz-border-radius: 30px 30px 30px 30px;
+    -webkit-border-radius: 30px 30px 30px 30px;
+    border: 0px solid #000000;
+    background-color: chartreuse;
+    margin-left: 133px;
+    text-align: center;
+    font-weight:bold;
+    font-size: 20px;
+    padding-top: 16px;
+    padding-bottom: 14px;
+}
+
+.dos .col-md-6{
+    margin-left: 45px;
+    text-align: center;
+    font-weight:bold;
+    padding-top: 12px;
+}
+
+.modal-body{
+    height: 150px;
+    
+}
+
+.modal-body .row{
+
+    padding-bottom: 10px;
+    
+}
+
+
+.modal-content{
+    padding:20px;
+}
+
+.modal-content h2{
+    text-align: center;
+    color: saddlebrown;
+    font-weight:bold;
+}
+
+button{
+   
+}
+.centrar{text-align:center;}
